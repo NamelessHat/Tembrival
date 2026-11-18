@@ -16,6 +16,6 @@ Existing HTTP pairings deliberately stop and require one new pairing. Update the
 
 Limits: TLS does not repair VPN routing or isolate a compromised operating system. LAN listeners may be reachable on other interfaces if network routing/firewall permits; this is not guaranteed to be 'same Wi-Fi only'. Keep Windows firewall scope to trusted private networks; do not forward these ports to the internet. A paired device is authorized to exchange the user's library. No music-at-rest encryption is provided. Certificates expire after ten years; plan renewal before expiry.
 
-External contributions: no accounts, telemetry or analytics are added. A support link, if configured later, opens the payment provider; Tembrival does not process card details. No server or domain has been published.
+External contributions: no accounts, telemetry or analytics are added. A support link, if configured later, opens the payment provider; Tembrival does not process card details. The public presentation website is hosted at https://namelesshat.github.io/Tembrival/ on GitHub Pages. It does not proxy the local pairing or library services. No cloud library service is provided.
 
 References: https://developer.android.com/privacy-and-security/security-ssl , https://developer.android.com/privacy-and-security/keystore , https://www.electronjs.org/docs/latest/api/safe-storage .
