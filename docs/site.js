@@ -21,5 +21,13 @@
  function shuffle(items){const next=[...items];for(let i=next.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[next[i],next[j]]=[next[j],next[i]];}return next;}
  function renderDemo(){const entries=[...selected].flatMap(key=>sourceSets[key]),unique=[...new Set(entries)],removed=entries.length-unique.length;document.querySelector('#demo-count').textContent='Уникальных треков: '+unique.length;document.querySelector('#demo-dedup').textContent=unique.length?'В источниках: '+entries.length+' позиций · пересечений убрано: '+removed:'Выбери хотя бы один источник в схеме.';document.querySelector('#demo-order').replaceChildren(...shuffle(unique).slice(0,7).map(id=>{const chip=document.createElement('span');chip.textContent='♫ '+String(id).padStart(2,'0');return chip;}));document.querySelector('#demo-shuffle').disabled=!unique.length;}
  document.querySelectorAll('[data-source]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.source;if(selected.has(key))selected.delete(key);else selected.add(key);button.setAttribute('aria-pressed',String(selected.has(key)));renderDemo();}));document.querySelector('#demo-shuffle').addEventListener('click',renderDemo);
+
+ // mailto uses the visitor's configured handler; copying works independently.
+ const copyEmail=document.querySelector('#copy-email'),contactStatus=document.querySelector('#contact-status');
+ copyEmail?.addEventListener('click',async()=>{
+  try {await navigator.clipboard.writeText('NotHappyWolf@yandex.ru');contactStatus.textContent='Адрес скопирован. Вставь его в поле «Кому» в своей почте.';}
+  catch {contactStatus.textContent='Не удалось скопировать автоматически. Выдели адрес ниже и скопируй вручную.';const range=document.createRange();range.selectNodeContents(document.querySelector('.contact-address'));const selection=getSelection();selection.removeAllRanges();selection.addRange(range);}
+ });
+
  setTheme(read('tembrival-site-theme'));setMotion(read('tembrival-site-motion')!=='off');renderDemo();
 })();
