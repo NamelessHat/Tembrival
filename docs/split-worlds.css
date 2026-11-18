@@ -39,3 +39,5 @@ main{background:linear-gradient(90deg,#49392de3,#373333df 48%,#12252de6 52%,#122
 @media(max-width:650px){.site-header.wrap,.site-footer.wrap{width:calc(100% - 24px)}main{background:linear-gradient(90deg,#49392de3,#373333df 48%,#12252de6 52%,#12252de6)}}
 
 .release-pending{cursor:default;opacity:.82;box-shadow:none;justify-content:center}
+
+.contact-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem}.contact-actions button{font:inherit;cursor:pointer}.contact-address{overflow-wrap:anywhere;user-select:all}.contact-status{min-height:1.5em;font-size:1rem}.contact-actions :focus-visible{outline:2px solid currentColor;outline-offset:5px}
