@@ -1,0 +1,41 @@
+/* Two permanent worlds, with one stationary reading column between them.
+   Blur is limited to a static, viewport-sized artwork, never a backdrop filter. */
+:root,:root[data-theme=night]{--paper:#15252d;--paper-deep:#102129;--panel:#1c3038;--ink:#f2ead7;--muted:#c4d0cd;--line:#53676b;--focus:#f8d09c;--accent:#f2b88b;--button:#e9b083;--button-ink:#162830;color-scheme:dark}
+:root[data-theme=night]{--accent:#b7e3d0;--button:#b7d8c6;--button-ink:#10252d;--focus:#b7e3d0}
+body{background:#122632;isolation:isolate}
+.page-worlds{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;contain:strict}
+.page-world-art{position:absolute;inset:-12px;width:calc(100% + 24px);max-width:none;height:calc(100% + 24px);object-fit:cover;object-position:center;filter:blur(4px) saturate(.8);opacity:.94}
+.page-world-shade{position:absolute;inset:0;background:linear-gradient(90deg,#71462f24 0%,#1d273342 43%,#07162255 55%,#06152226 100%),linear-gradient(0deg,#071b2b85,transparent 65%)}
+.world-seam{position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(#f5c6976b,#b8e3d338,#adcfc32b);opacity:.65}
+.edge-day,.edge-night{position:absolute;bottom:-10px;width:clamp(150px,23vw,360px);max-width:none;image-rendering:pixelated}
+.edge-day{left:-95px}.edge-night{right:-95px}
+.edge-star{position:absolute;width:50px;color:#c5ead2}.edge-star-one{right:3.5%;top:15%;animation-delay:-3s}.edge-star-two{right:7%;top:44%;width:26px;color:#efdfac;animation-duration:11.1s;animation-delay:-7s}.edge-star-three{right:2.5%;top:63%;font-size:18px;color:#c1dfbd}
+main,.site-header,.site-footer{position:relative;width:min(1120px,calc(100% - 180px));margin-inline:auto}
+main{background:linear-gradient(90deg,#49392de3,#373333df 48%,#12252de6 52%,#12252de6);border-inline:1px solid #d9e2ce33;box-shadow:0 0 80px #07172135}
+.wrap{width:calc(100% - 80px);max-width:1040px}
+.site-header,.site-footer{padding-inline:40px;background:#14272ef2;border-inline:1px solid #d9e2ce33}
+.site-header{margin-top:24px;border-top:1px solid var(--line)}
+.site-footer{margin-bottom:24px;border-bottom:1px solid var(--line)}
+.hero{padding-top:60px;background:transparent}
+.hero-copy{max-width:850px}.hero h1{font-size:clamp(28px,3.5vw,44px)}
+.hero-description{max-width:650px}.hero-actions{margin-bottom:48px}
+.hero-foot{padding-top:78px}.scene-stage{width:100%}.scene-stage .landscape{opacity:.86}
+.scene-decor{width:clamp(170px,21vw,290px)}.decor-day{left:-25px}.decor-night{right:-25px;width:clamp(175px,22vw,310px)}
+:root[data-theme] .scene-decor{opacity:1}
+.inside-section,.download-section{background:transparent;border-top:1px solid #8faaa349}
+.mix-section,.connection-section,.trust-section,.world-chapter,.closing{padding-block:65px}
+.section-intro{margin-inline:auto;text-align:center}.section-intro>p:last-child{margin-inline:auto}
+.mix-explainer{gap:38px}.mix-demo{background:#182c34;box-shadow:4px 4px 0 #071c2466}
+.inside-heading{display:block;text-align:center}.inside-heading>p{margin-top:20px}.device-previews{grid-template-columns:minmax(0,1fr) 155px;gap:20px}
+.connection-section,.trust-section{gap:40px}.download-heading{justify-content:center}.download-heading h2{font-size:clamp(20px,2.5vw,27px)}
+.downloads{gap:22px}.downloads article{padding:25px;background:#172d35}
+.world-story{gap:25px}.world-copy h3{font-size:23px}.world-controls{padding-top:52px}
+.world-controls button[aria-pressed=true]{background:var(--accent);color:#15282f}.world-controls button[aria-pressed=true] span{color:#15282f}
+@media(min-width:1500px){main,.site-header,.site-footer{width:1120px}.edge-day{left:-40px}.edge-night{right:-40px}.edge-star-one{right:7%;width:66px}.edge-star-two{right:11%}}
+@media(max-width:1000px){main,.site-header,.site-footer{width:calc(100% - 84px)}.wrap{width:calc(100% - 54px)}.site-header,.site-footer{padding-inline:27px}.site-header{gap:15px}.site-header nav{gap:16px}.brand{font-size:11px}.brand small{font-size:5px;letter-spacing:.3px}.mix-explainer{gap:25px}.edge-day{left:-105px}.edge-night{right:-100px}.edge-star-one{right:1%;width:32px}.edge-star-two{right:1%;width:18px}.world-copy h3{font-size:20px}.device-previews{grid-template-columns:minmax(0,1fr) 135px}}
+@media(max-width:650px){main,.site-header,.site-footer{width:calc(100% - 24px)}.wrap{width:calc(100% - 34px)}.site-header,.site-footer{padding-inline:17px}.site-header{margin-top:12px}.site-footer{margin-bottom:12px}.brand{font-size:9px}.brand small{font-size:3.5px}.site-header nav{gap:5px}.site-header nav a{font-size:10px}.theme-toggle{padding:5px 0}.hero{padding-top:37px}.hero h1{font-size:clamp(17px,4.3vw,25px)}.hero-actions{gap:20px;margin-bottom:32px}.hero-foot{padding-top:50px}.scene-stage .landscape{height:245px}.scene-decor{width:140px;bottom:-34px}.decor-day{left:-12px}.decor-night{right:-12px;width:145px}.scene-label strong{font-size:8px}.scene-label{bottom:110px}.label-a{left:10px}.label-b{right:10px}.mix-section,.connection-section,.trust-section,.world-chapter,.closing{padding-block:44px}.mix-explainer{gap:30px}.mix-demo{padding:16px}.source-buttons{gap:8px}.source-buttons button{padding:13px 9px}.demo-label{font-size:4px}.mix-result strong{font-size:20px}.inside-heading h2{font-size:18px}.device-previews{grid-template-columns:1fr}.phone-preview{width:175px}.download-heading{gap:12px}.download-heading h2{font-size:16px}.downloads article{padding:21px}.downloads .button{padding-inline:12px}.world-controls{padding-top:23px}.world-copy h3{font-size:20px}.edge-day,.edge-night{display:none}.edge-star-one{width:22px;right:-2px;top:12%}.edge-star-two{right:0;top:58%;width:14px}.edge-star-three{display:none}.page-world-art{filter:blur(3px) saturate(.8)}main{background:linear-gradient(90deg,#1d2b32e8,#12252de3)}}
+.site-header.wrap,.site-footer.wrap{width:min(1120px,calc(100% - 180px));max-width:1120px}
+@media(max-width:1000px){.site-header.wrap,.site-footer.wrap{width:calc(100% - 84px)}}
+@media(max-width:650px){.site-header.wrap,.site-footer.wrap{width:calc(100% - 24px)}main{background:linear-gradient(90deg,#49392de3,#373333df 48%,#12252de6 52%,#12252de6)}}
+
+.release-pending{cursor:default;opacity:.82;box-shadow:none;justify-content:center}
