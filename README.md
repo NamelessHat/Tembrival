@@ -2,13 +2,19 @@
 
 Музыкальный плеер для Windows и Android с локальной библиотекой и передачей музыки между устройствами по Wi-Fi. Tembrival — дневная сторона интерфейса, Iskavell — ночная.
 
-Разработчик — [NamelessHat](https://github.com/NamelessHat). [Официальный сайт](https://namelesshat.github.io/Tembrival/) уже доступен. Публичный выпуск приложения готовится; установочные файлы пока не размещены. Текущий кандидат — 0.21.1.
+Разработчик — [NamelessHat](https://github.com/NamelessHat). [Официальный сайт](https://namelesshat.github.io/Tembrival/) уже доступен. [Выпущена версия 0.21.2](https://github.com/NamelessHat/Tembrival/releases/tag/v0.21.2).
 
 ![Дневной интерфейс Tembrival с боковой очередью](media/app-preview-day.png)
 
 ![Ночной интерфейс Iskavell с боковой очередью](media/app-preview-night.png)
 
 На скриншотах — демонстрационная библиотека Windows-версии 0.21.1.
+
+## Скачать
+
+- [Windows 10/11 x64 — ZIP](https://github.com/NamelessHat/Tembrival/releases/download/v0.21.2/Tembrival-Windows.zip).
+- [Android 8+ — APK](https://github.com/NamelessHat/Tembrival/releases/download/v0.21.2/Tembrival-Android.apk).
+- [Описание выпуска, исходники FFmpeg и контрольные суммы](https://github.com/NamelessHat/Tembrival/releases/tag/v0.21.2).
 
 ## Исходный код
 
