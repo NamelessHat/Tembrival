@@ -1,0 +1,2 @@
+const {contextBridge,ipcRenderer,webUtils}=require('electron');
+contextBridge.exposeInMainWorld('Luma',{call:(method,args)=>ipcRenderer.invoke('luma',method,args),onMiniControl:fn=>ipcRenderer.on('mini-control',(_,a)=>fn(a)),onMiniState:fn=>ipcRenderer.on('mini-state',(_,a)=>fn(a)),filePath:file=>webUtils.getPathForFile(file),onLibraryChanged:fn=>ipcRenderer.on('library-changed',fn),onProgress:(fn)=>ipcRenderer.on('progress',(_,p)=>fn(p))});

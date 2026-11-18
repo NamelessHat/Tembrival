@@ -1,0 +1,87 @@
+/* Side B has its own quiet geometry: paired marks, reverse edges, constellations.
+   Small static elements only; the long track panel stays a flat fill. */
+.reflection-sigil,.night-route{display:none}
+:root[data-theme=night] .reflection-sigil{display:inline-flex;align-items:center;gap:3px;margin-left:auto;padding-left:15px}
+.reflection-sigil svg{width:26px;height:18px;shape-rendering:crispEdges;image-rendering:pixelated}
+:root[data-theme=night] .journal-divider>span{height:17px;background:none}
+:root[data-theme=night] .night-route{display:block;width:100%;height:17px;overflow:visible}
+:root[data-theme=night] .journal-divider>.journal-pixel:last-child{transform:scaleX(-1)}
+:root[data-theme=night] .section-heading{border-left:2px solid #75a99b;padding-left:12px}
+:root[data-theme=night] .card[data-sleeve]{clip-path:polygon(0 0,calc(100% - 12px) 0,calc(100% - 12px) 4px,calc(100% - 7px) 4px,calc(100% - 7px) 8px,100% 8px,100% 100%,0 100%);border-bottom-width:2px;box-shadow:-3px 3px #0a1c26}
+:root[data-theme=night] .playlist-card-wrap:focus-within{outline:1px solid #d9b58d;outline-offset:3px}
+:root[data-theme=night] .card[data-sleeve]:before{right:8px;bottom:10px;width:22px;height:5px;background:linear-gradient(90deg,#8bc4b4 0 40%,transparent 40% 60%,#d5a587 60%);clip-path:none}
+:root[data-theme=night] .card[data-sleeve]:after{padding-right:31px}
+:root[data-theme=night] .card[data-sleeve]>.cover{outline-offset:2px;outline-color:#355861;border-color:#81a49a}
+:root[data-theme=night] .sleeve-label i{font-size:0;width:7px;height:7px;padding:0;margin-right:35px;background:linear-gradient(135deg,#8bbcb0 0 48%,#dbab92 49%);transform:rotate(45deg)}
+:root[data-theme=night] .library-destination{border-left-color:#89b3a5;border-right-color:#bd9983;box-shadow:-3px 3px #091a23}
+:root[data-theme=night] nav button.active{border-left-color:#81b8a6;border-right-color:#d4aa87}
+:root[data-theme=night] .play-button{border-top-color:#a8cdb9;border-left-color:#a8cdb9;border-right-color:#f5c49d;border-bottom-color:#f5c49d}
+:root[data-theme=night] .transport:before{content:'Side B · ТВОЯ ТИХАЯ СТОРОНА';color:#b4c9bb}
+:root[data-theme=night] .player:before{height:1px;opacity:.65;background:linear-gradient(90deg,#7db4a4,transparent 40% 60%,#d8a47c)}
+:root[data-theme=night] .hero{height:clamp(290px,26vw,360px);background-size:auto 100%;background-position:right center;background-repeat:no-repeat;background-color:#05101a;border-left-color:#79a89c;border-right-color:#c6a68b}
+:root[data-theme=night] .hero:before{background:linear-gradient(90deg,#07121cf2,#07121c99 34%,transparent 65%)}
+:root[data-theme=night] .hero:after{border-color:#9fc4b52b}
+:root[data-theme=night] .art-caption{border-left-color:#88bba6;border-right-color:#d0a489;box-shadow:-2px 3px #07121c}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(1){fill:#294653}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(2){fill:#a9c8ca}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(3){fill:#3e6c68}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(4){fill:#1d3e47}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(5){fill:#786459}
+@media(max-width:650px){:root[data-theme=night] .section-heading{padding-left:9px}:root[data-theme=night] .reflection-sigil{padding-left:5px}.reflection-sigil svg{width:20px;height:15px}:root[data-theme=night] .night-route{height:13px}:root[data-theme=night] .journal-divider>span{height:13px}:root[data-theme=night] .hero{height:330px;background-size:auto 100%;background-position:75% center}:root[data-theme=night] .hero:before{background:linear-gradient(90deg,#07121ce8,#07121c88 55%,#07121c12)}:root[data-theme=night] .transport:before{display:none}}
+
+/* Collection-only prototype 02: routes by day, mirrored edges by night.
+   Scoped names avoid affecting track art, cover editors or the mini-player. */
+.card[data-sleeve]{--object-edge:#b88699;--object-light:#ffe4bb;--object-ink:#614357;--object-shell:#d7a28e;--object-muted:#a5657e;background:none;border:0;box-shadow:none;border-radius:0;clip-path:none;padding:9px 11px 12px;color:#653d55;overflow:visible}
+.card[data-sleeve]:hover,.card[data-sleeve]:focus-visible{background:#f5d9b94d;box-shadow:none}
+.card[data-sleeve]:before{display:none}
+.card[data-sleeve] .sleeve-label{color:var(--object-muted);padding:0 34px 0 5px;min-height:23px;margin:0 0 5px}
+.card[data-sleeve] .sleeve-label i{display:none}
+.card[data-sleeve]>strong,.card[data-sleeve]>small,.card[data-sleeve]:after{border-left:2px solid var(--object-edge);padding-left:8px}
+.card[data-sleeve]>strong{margin:8px 0 0;padding-top:3px;font-size:14px}
+.card[data-sleeve]>small{margin:0;padding-top:4px;padding-bottom:4px;color:var(--object-muted)}
+.card[data-sleeve]:after{font:5px/1.8 var(--pixel);letter-spacing:0;margin:0;padding-top:7px;padding-bottom:6px;border-top:1px dashed var(--object-edge);color:var(--object-muted)}
+.collection-visual{height:178px;display:flex;align-items:center;justify-content:center;position:relative;width:100%;margin-bottom:9px;border-bottom:1px dashed var(--object-edge);padding-bottom:13px;pointer-events:none}
+.collection-object{display:block;position:relative;width:min(100%,154px);height:142px;flex-shrink:0}
+.collection-object .object-face{position:absolute;display:block;overflow:hidden}
+.collection-object .object-face>.cover{display:block;width:100%!important;height:100%!important;aspect-ratio:auto;margin:0!important;outline:0;border:0;box-shadow:none;animation:none;object-fit:contain;border-radius:0;background:var(--object-shell)}
+.collection-object .cover.placeholder{display:grid;place-items:center}
+.collection-object .cover.placeholder>.journal-pixel{width:65%;height:65%;filter:none}
+.object-playlist{background:var(--object-shell);border:4px solid var(--object-edge);box-shadow:2px 3px var(--object-ink)}
+.object-playlist .object-face{inset:7px 7px 35px;border:2px solid var(--object-light)}
+.object-reels{position:absolute;bottom:9px;left:12px;right:12px;height:20px;display:flex;align-items:center;justify-content:space-between;padding:0 7px}
+.object-reels i{width:19px;height:19px;border:5px solid var(--object-light);background:var(--object-ink);border-radius:50%;z-index:1}
+.object-reels b{position:absolute;left:16px;right:16px;height:10px;border-top:2px solid var(--object-light);border-bottom:2px solid var(--object-light)}
+.object-seam{position:absolute;bottom:3px;left:40%;right:40%;height:3px;background:var(--object-ink)}
+.object-folder{height:133px;margin-top:8px}
+.object-tab{position:absolute;left:0;top:-9px;width:42%;height:25px;background:var(--object-edge);clip-path:polygon(0 0,75% 0,100% 45%,100% 100%,0 100%)}
+.object-file{position:absolute;inset:2px 3px 6px 7px;background:var(--object-light);transform:rotate(3deg);border:1px solid var(--object-edge)}
+.object-folder .object-face{inset:10px 0 0;border:2px solid var(--object-edge);padding:8px 8px 16px;background:var(--object-shell);box-shadow:2px 3px var(--object-ink)}
+.object-folder .object-face>.cover{border:1px solid var(--object-light)}
+.object-mark{position:absolute;bottom:5px;left:9px;width:28%;height:4px;background:var(--object-light)}
+.object-album{width:min(100%,174px);height:145px}
+.object-album .object-face{left:0;top:50%;transform:translateY(-50%);width:76%;height:auto;aspect-ratio:1;border:4px solid var(--object-light);box-shadow:2px 3px var(--object-edge);z-index:1}
+.object-vinyl{position:absolute;right:0;top:50%;transform:translateY(-50%);width:74%;height:auto;aspect-ratio:1;border-radius:50%;border:2px solid #101922;background:repeating-radial-gradient(circle,#18242e 0 4px,#34424b 5px,#101a24 6px)}
+.object-vinyl:after{content:'';position:absolute;inset:35%;background:var(--object-shell);border:3px solid var(--object-light);border-radius:50%}
+.object-artist{width:min(92%,134px);height:149px;background:var(--object-edge);padding:5px 5px 17px;box-shadow:2px 3px var(--object-ink)}
+.object-artist .object-face{inset:5px 5px 17px;border:2px solid var(--object-light)}
+.collection-route,.collection-mirrors{position:absolute;inset:auto 0 -4px;width:100%;height:28px;color:var(--object-muted);pointer-events:none}
+.collection-mirrors{display:none}
+.playlist-card-wrap .playlist-more{top:6px;right:5px;min-width:32px;min-height:32px;background:transparent;border-color:transparent;box-shadow:none;color:var(--object-muted,#a5657e)}
+:root[data-theme=night] .card[data-sleeve]{--object-edge:#60948f;--object-light:#bce5d0;--object-ink:#0c202d;--object-shell:#2b606b;--object-muted:#9acbbb;background:none;border:0;box-shadow:none;clip-path:none;color:#e4e7d8}
+:root[data-theme=night] .card[data-sleeve]:hover,:root[data-theme=night] .card[data-sleeve]:focus-visible{background:#28495440}
+:root[data-theme=night] .card[data-sleeve]:before{display:none}
+:root[data-theme=night] .card[data-sleeve]>small,:root[data-theme=night] .card[data-sleeve]:after{color:var(--object-muted)}
+:root[data-theme=night] .collection-visual{border-bottom:0}
+:root[data-theme=night] .collection-route{display:none}
+:root[data-theme=night] .collection-mirrors{display:block;height:32px;bottom:-5px}
+:root[data-theme=night] .object-playlist{background:#1c414b;box-shadow:-2px 3px #07141f}
+:root[data-theme=night] .object-folder .object-face{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,8px 100%,0 calc(100% - 8px));background:#2b545d}
+:root[data-theme=night] .object-album .object-face{border-color:#8ecabd;box-shadow:-2px 3px #07141f}
+:root[data-theme=night] .object-artist{clip-path:polygon(9px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 9px);background:linear-gradient(130deg,#92c8bb,#345965 40%,#152b38 60%,#97c7b8);box-shadow:none}
+:root[data-theme=night] .playlist-card-wrap .playlist-more{color:#9acbbb}
+@media(max-width:650px){.card[data-sleeve]{padding:7px 6px 10px}.collection-visual{height:148px}.collection-object{width:min(100%,130px);height:122px}.object-folder{height:116px}.object-album{width:min(100%,145px);height:125px}.object-album .object-face{height:auto}.object-vinyl{width:74%;height:auto}.object-artist{width:min(90%,115px);height:127px}.card[data-sleeve]>strong{font-size:12px}.card[data-sleeve]:after{font-size:4px}.card[data-sleeve] .sleeve-label{font-size:4px;padding-right:28px}.playlist-card-wrap .playlist-more{right:0;top:2px}}
+
+:root[data-theme] .playlist-card-wrap>.playlist-more{background:transparent;box-shadow:none;border-color:transparent}
+
+/* Saved pairing and current reachability are distinct. */
+.device strong{display:block;font-size:12px;overflow-wrap:anywhere}.device-presence{display:block;font-size:11px;opacity:.75}.device-presence[data-online="true"]{color:var(--ice);opacity:1}

@@ -1,0 +1,148 @@
+#theme-toggle{width:34px;height:34px;padding:7px;flex-shrink:0;display:grid;place-items:center}
+#theme-toggle svg{width:17px;height:17px;image-rendering:pixelated;shape-rendering:crispEdges}
+.theme-description{line-height:1.6}
+:root[data-theme=night]{color-scheme:dark;--night-text:#e6e5d8;--night-muted:#a8babc;--night-line:#4d6e72;--night-panel:#142530;--night-field:#101526;--night-warm:#efb486;--accent:#de91b3;--ice:#8ad0d2}
+:root[data-theme=night] body{background-color:#07121c;color:var(--night-text)}
+:root[data-theme=night] body:before{background-image:linear-gradient(90deg,#080d192b,#0b0e1910),url('assets/night-altitude.png');background-position:center center}
+:root[data-theme=night] aside{background:linear-gradient(#12232e,#0b1823);border-color:#38575e;box-shadow:inset -1px 0 #85a9a022}
+:root[data-theme=night] header{background:linear-gradient(#0c1925,#11212c);border-color:#4d6e72}
+:root[data-theme=night] .search{background:#101526;border-color:#4c6b70;box-shadow:2px 2px #070b16}
+:root[data-theme=night] .search input,:root[data-theme=night] .breadcrumbs b{color:#ede3ef}
+:root[data-theme=night] .search input::placeholder{color:#b0a1bc}
+:root[data-theme=night] .search kbd{background:#20333b;border-color:#57777a;color:#bcaccb}
+:root[data-theme=night] .breadcrumbs,:root[data-theme=night] .breadcrumbs span{color:#a5b9b8}
+:root[data-theme=night] .brand,:root[data-theme=night] .brand-sub{color:#f0ddcb}
+:root[data-theme=night] .nav-label,:root[data-theme=night] .aside-bottom,:root[data-theme=night] .camp-badge{color:#b1bdb6}
+:root[data-theme=night] .aside-bottom small,:root[data-theme=night] .camp-badge small{color:#91a5a7}
+:root[data-theme=night] nav button{color:#bcc5be}
+:root[data-theme=night] nav button:hover{background:#24363d;color:#f0ddcb}
+:root[data-theme=night] nav button.active{background:#2a4249;color:#f7d2ae;border-color:#89a9a1;box-shadow:2px 3px #090c18}
+:root[data-theme=night] nav button small{background:#3b514d;color:#f1ceae}
+:root[data-theme=night] .collection{background:#11212c;color:var(--night-text);border-color:#4d6e72;box-shadow:3px 4px #070b16,inset 0 0 0 1px #97b5a51a;background-image:none}
+:root[data-theme=night] h2,:root[data-theme=night] h3,:root[data-theme=night] .empty h3,:root[data-theme=night] .artist-albums-heading{color:#eee7d8}
+:root[data-theme=night] h2 small{background:#40564f;color:#f5cfb0;border-color:#7e9d8d;box-shadow:1px 2px #090d1c}
+:root[data-theme=night] .trail-chapter,:root[data-theme=night] .eyebrow{color:#a2c1bb}
+:root[data-theme=night] .journal-divider>span{background-image:repeating-linear-gradient(90deg,#4d6e72 0 3px,transparent 3px 8px)}
+:root[data-theme=night] .secondary{background:#24363d;color:#e8d7e2;border-color:#607e7c;box-shadow:2px 3px #090c18}
+:root[data-theme=night] .secondary:hover{background:#30474b;border-color:#b292b8}
+:root[data-theme=night] .primary,:root[data-theme=night] .play-button{background:#edb082;color:#282035;border-color:#ffe0b6;box-shadow:3px 4px #79516a,4px 5px #090c18;text-shadow:none}
+:root[data-theme=night] .primary:hover,:root[data-theme=night] .play-button:hover{background:#ffd0a3}
+:root[data-theme=night] button:active:not(:disabled){background-color:#38504f;box-shadow:1px 1px #100e20}
+:root[data-theme=night] button:focus-visible,:root[data-theme=night] input:focus-visible,:root[data-theme=night] select:focus-visible,:root[data-theme=night] a:focus-visible{outline-color:#e8b98d}
+:root[data-theme=night] select,:root[data-theme=night] input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=file]),:root[data-theme=night] textarea{background:var(--night-field);color:#e6dceb;border-color:#5d7d7d}
+:root[data-theme=night] input::placeholder,:root[data-theme=night] textarea::placeholder{color:#a6b9b5;opacity:1}
+:root[data-theme=night] input[type=checkbox],:root[data-theme=night] input[type=radio],:root[data-theme=night] input[type=range]{accent-color:#c993b9}
+:root[data-theme=night] input[type=range]{background:#090f1d;border-color:#627f7f;box-shadow:inset 1px 1px #050914}
+:root[data-theme=night] input[type=range]::-webkit-slider-thumb{background:#efbf96;border-color:#ffe0be;box-shadow:2px 2px #694564}
+:root[data-theme=night] th{color:#a9c0b7;border-color:#79617f}
+:root[data-theme=night] td{color:#adbeb8;border-color:#2e4950}
+:root[data-theme=night] td:first-child{color:#9ab8b0}
+:root[data-theme=night] .track-title{color:#e7e4d8}
+:root[data-theme=night] .track-artist,:root[data-theme=night] .row-duration{color:#b5bbb0}
+:root[data-theme=night] tr.track:hover{background:#1c333e}
+:root[data-theme=night] tr.playing{background:#243a42;box-shadow:inset 3px 0 #de91b3}
+:root[data-theme=night] tr.playing .track-title{color:#f3b6cc}
+:root[data-theme=night] .tiny{color:#d59abc}
+:root[data-theme=night] .tiny:hover{color:#f6c9d9;background:#44304b}
+:root[data-theme=night] .pixel-meter i{background:#e5a2bf}
+:root[data-theme=night] .card[data-sleeve]{--sleeve-ink:#abc8b9;background:#162732;border-color:#53767a;border-bottom-color:#3e5e66;box-shadow:2px 3px #0a0e1d}
+:root[data-theme=night] .card[data-sleeve=folder]{--sleeve-ink:#9cc5c1}
+:root[data-theme=night] .card[data-sleeve=album]{--sleeve-ink:#d4b199}
+:root[data-theme=night] .card[data-sleeve=artist]{--sleeve-ink:#d5a1bc}
+:root[data-theme=night] .card[data-sleeve]:hover,:root[data-theme=night] .card[data-sleeve]:focus-visible{background:#213a43;border-color:#98bfb1;box-shadow:3px 4px #090d1a}
+:root[data-theme=night] .card[data-sleeve]:before{background:linear-gradient(135deg,#223c46 0 48%,#8db3a8 49% 53%,#3c6268 54%)}
+:root[data-theme=night] .card[data-sleeve]:after{border-color:#3a5d65}
+:root[data-theme=night] .card[data-sleeve]>.cover{border-color:#61878b;outline-color:#284751}
+:root[data-theme=night] .card strong{color:#eee4d5}
+:root[data-theme=night] .card small{color:#b8c2b5}
+:root[data-theme=night] .sleeve-label i{color:#bd9dcc}
+:root[data-theme=night] .placeholder{background:#263e46;border-color:#7a638a}
+:root[data-theme=night] .tape-1{background:#2d3f50}:root[data-theme=night] .tape-2{background:#294b51}:root[data-theme=night] .tape-3{background:#494b43}
+:root[data-theme=night] .library-destination{background:#162732;color:#e8dce8;border-color:#53767a;box-shadow:3px 3px #090d1a}
+:root[data-theme=night] .library-destination:hover{background:#2d2942}
+:root[data-theme=night] .library-destination small{color:#baa5bf}
+:root[data-theme=night] .library-destination>span{background:#30273f;border-color:#7a6083;box-shadow:2px 2px #0a0e1d}
+:root[data-theme=night] .hero{background-image:url('assets/night-altitude.png');border-color:#4d767b;box-shadow:3px 4px #070b16}
+:root[data-theme=night] .hero:before{background:linear-gradient(90deg,#07121cf2,#0d1b26aa 39%,#08141b08 75%)}
+:root[data-theme=night] .hero:after{border-color:#a1c5b344}
+:root[data-theme=night] .hero h1{color:#f1e6ec}:root[data-theme=night] .hero h1 em{color:#f4b690}
+:root[data-theme=night] .hero p,:root[data-theme=night] .hero-note{color:#b5c5bc}
+:root[data-theme=night] .art-caption{background:#102832ee;color:#edcba9;border-color:#6c9894;box-shadow:3px 3px #0a0e1d}
+:root[data-theme=night] .empty{background:#10222c;border-color:#4c7074;color:#adbbb4}
+:root[data-theme=night] .empty p{color:#adbbb4}
+:root[data-theme=night] .empty-scene>span{background:#172d38;border-color:#648c8a}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(1){fill:#2f5262}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(2){fill:#b5cfd0}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(3){fill:#6d888d}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(4){fill:#284452}
+:root[data-theme=night] .empty-scene>svg>path:nth-child(5){fill:#75675e}
+:root[data-theme=night] .player{background-color:#0c1120;background-image:linear-gradient(100deg,color-mix(in srgb,var(--record-accent) 12%,transparent),transparent 65%),linear-gradient(#182e3a,#0c1d29);border-top-color:#668d8c;box-shadow:0 -3px #050913,0 -6px #97b5a522}
+:root[data-theme=night] .now strong{color:#f3e5e8}
+:root[data-theme=night] .now small,:root[data-theme=night] .now-caption,:root[data-theme=night] .transport:before,:root[data-theme=night] .timeline{color:#b2c3b9}
+:root[data-theme=night] .icon,:root[data-theme=night] .volume{color:#cbb8d2}
+:root[data-theme=night] .icon:hover,:root[data-theme=night] .icon.active{color:#f4c099}
+:root[data-theme=night] .timeline{background-image:repeating-linear-gradient(90deg,#9fbdaf44 0 1px,transparent 1px 12px)}
+:root[data-theme=night] footer,:root[data-theme=night] .footer-right{color:#b0bfb2}
+:root[data-theme=night] dialog,:root[data-theme=night] #track-popover,:root[data-theme=night] .online-finish-dialog{background:#162732;color:#ded2e5;border-color:#719995;box-shadow:4px 5px #050914,inset 0 0 0 1px #95baac2b}
+:root[data-theme=night] dialog::backdrop{background:#050813cf;backdrop-filter:none}
+:root[data-theme=night] dialog:before{content:var(--app-display-name,'Iskavell') ' · ПО ТУ СТОРОНУ СНА';color:#baa0cb;border-color:#685075}
+:root[data-theme=night] dialog h3,:root[data-theme=night] #crop-dialog>h3{color:#eee3d2}
+:root[data-theme=night] .muted,:root[data-theme=night] dialog .muted,:root[data-theme=night] .sync-panel .muted{color:#b4c2b8}
+:root[data-theme=night] .playlist-editor>label,:root[data-theme=night] .track-editor label,:root[data-theme=night] .setting-card label:not(.setting-check),:root[data-theme=night] .setting-card,:root[data-theme=night] .volume-editor,:root[data-theme=night] .check-option,:root[data-theme=night] .delete-option{color:#d6dacf}
+:root[data-theme=night] .editor-actions,:root[data-theme=night] .online-batch-actions{background:#162732;border-color:#4e7375}
+:root[data-theme=night] .track-picker,:root[data-theme=night] .track-picker>label,:root[data-theme=night] .queue-entry,:root[data-theme=night] .duplicate-list fieldset{border-color:#405d65}
+:root[data-theme=night] .track-picker>label,:root[data-theme=night] .track-picker small,:root[data-theme=night] .pick-duration,:root[data-theme=night] .playlist-intro p,:root[data-theme=night] .duplicate-option,:root[data-theme=night] .duplicate-list legend,:root[data-theme=night] .artist-all-tracks summary{color:#b8c8bd}
+:root[data-theme=night] .pick-track-text strong{color:#eee0eb}:root[data-theme=night] .track-picker .pick-track-text small{color:#e09fbd}
+:root[data-theme=night] .queue-item,:root[data-theme=night] .queue-entry.current,:root[data-theme=night] .selection-tools{background:#23393f;color:#d6ddcc;border-color:#527b7d}
+:root[data-theme=night] .queue-item:hover{background:#304d50;color:#f3d5df}
+:root[data-theme=night] .track-context-menu button,:root[data-theme=night] #track-popover .track-context-menu button{color:#dfcfe2;border-color:#4b7074}
+:root[data-theme=night] #track-popover .track-context-menu button:hover,:root[data-theme=night] #track-popover .track-context-menu button:focus-visible{background:#29454d;outline-color:#9bbcb0}
+:root[data-theme=night] .delete-action{color:#f0a0b6!important}
+:root[data-theme=night] .picker-modes .active{background:#385750;border-color:#8eb6a6;color:#f1d6e4}
+:root[data-theme=night] .setting-card,:root[data-theme=night] .sync-panel{background:#162732;border-color:#557c80;box-shadow:3px 3px #070b16}
+:root[data-theme=night] .setting-card h3,:root[data-theme=night] .sync-panel h3{color:#f0dfe8}
+:root[data-theme=night] .setting-card output{color:#efbd98}
+:root[data-theme=night] .sync-panel p,:root[data-theme=night] .sync-panel label,:root[data-theme=night] .hotspot-guide,:root[data-theme=night] .manual-server{color:#bba8c7}
+:root[data-theme=night] .sync-panel:before{color:#bd9ac9}
+:root[data-theme=night] .status{color:#9ed2ca!important}
+:root[data-theme=night] .pin,:root[data-theme=night] .address{color:#edbd9c;text-shadow:none}
+:root[data-theme=night] .server-addresses p,:root[data-theme=night] .device,:root[data-theme=night] .network-finder{border-color:#4d737a}
+:root[data-theme=night] .qr-pair img{border-color:#e8d6e4}
+:root[data-theme=night] #toast{background:#2c4448;color:#ffe0bd;border-color:#9ab9a8;box-shadow:3px 4px #070b16}
+:root[data-theme=night] #import-progress{background:#273c44;color:#edb4c8;border-color:#779c96}
+:root[data-theme=night] .online-hint,:root[data-theme=night] .online-url-label,:root[data-theme=night] .online-fields label,:root[data-theme=night] .online-kind-label,:root[data-theme=night] .online-track p,:root[data-theme=night] .online-tools small,:root[data-theme=night] .online-selection strong{color:#b9c8bd}
+:root[data-theme=night] .online-track,:root[data-theme=night] .online-tools,:root[data-theme=night] .online-entries,:root[data-theme=night] .online-entries>label{border-color:#53777a}
+:root[data-theme=night] .online-track h4,:root[data-theme=night] #online-overall{color:#eadbe7}
+:root[data-theme=night] .online-track small{color:#d9b69b}
+:root[data-theme=night] .online-status,:root[data-theme=night] #online-overall small{color:#9acac5}
+:root[data-theme=night] .online-art{background:#49334c;border-color:#99759e;box-shadow:3px 3px #07121c}
+:root[data-theme=night] .online-entries>label{color:#e1d0e5}
+:root[data-theme=night] .online-entries small{color:#bda5c7}
+:root[data-theme=night] .online-entries [data-status=loading],:root[data-theme=night] .online-entries [data-status=retrying],:root[data-theme=night] .online-entries [data-status=waiting]{background:#343047}
+:root[data-theme=night] .online-entries [data-status=error]{background:#4a3537}
+:root[data-theme=night] #online-error,:root[data-theme=night] #delete-error,:root[data-theme=night] #collection-error,:root[data-theme=night] .online-entry-error,:root[data-theme=night] .online-finish-error{color:#f1a6be}
+:root[data-theme=night] .album-picker-list{background:#162732;border-color:#77a29c;box-shadow:3px 4px #070b16}
+:root[data-theme=night] .album-picker-list>button{color:#e2cce3;border-color:#436a72}
+:root[data-theme=night] .album-picker-list>button:hover,:root[data-theme=night] .album-picker-list>button[aria-selected=true]{background:#304b50;color:#f2d0df}
+:root[data-theme=night] .album-picker-list>.album-picker-new{color:#a8d1c9}
+:root[data-theme=night] .album-picker-empty,:root[data-theme=night] .album-picker-hint{color:#b1c4b9}
+:root[data-theme=night] .album-picker-toggle{color:#d5b2d2}
+:root[data-theme=night] .album-picker-toggle:hover{background:#304b50;color:#f1d4e4}
+:root[data-theme=night] #track-popover>p{color:#bfa6c7}
+:root[data-theme=night] #crop-dialog{color:#d9c8df}:root[data-theme=night] #crop-dialog p,:root[data-theme=night] .crop-zoom-label{color:#bfa7cb}
+:root[data-theme=night] .crop-stage{background:#101526;border-color:#72968e;box-shadow:3px 3px #090d1a}
+:root[data-theme=night] .mini-record{border-color:var(--record-accent,#a783b2)}
+:root[data-theme=night] .controls #play{background:#edb082;color:#282035}
+:root[data-theme=night] .track small,:root[data-theme=night] .track span{color:#b2c3b9}
+@media(max-width:650px){#theme-toggle{width:30px;height:30px;padding:5px}:root[data-theme=night] aside{background:#0e202b;border-top-color:#648a8a}:root[data-theme=night] nav button.active{background:#2a4449;color:#f2d1ae;box-shadow:none}}
+
+/* The longer brand stays within the established sidebar and mini-player. */
+@media(min-width:651px){.brand{font-size:12px;letter-spacing:.25px}.brand>[aria-hidden]{flex-shrink:0}.brand>span:last-of-type{min-width:0}}
+
+/* Both cassette halves stay visible; theme selects the brighter half. */
+.brand .logo{width:42px;height:38px}.brand .logo svg{filter:none;shape-rendering:crispEdges;overflow:visible}
+.brand-half{transition:filter .2s ease}.brand-day{filter:brightness(1.08) saturate(1.05)}.brand-night{filter:brightness(.72) saturate(.7)}
+:root[data-theme=night] .brand-day{filter:brightness(.72) saturate(.7)}
+:root[data-theme=night] .brand-night{filter:brightness(1.12) saturate(1.05)}
+@media(min-width:651px){.brand{gap:7px;font-size:11px;letter-spacing:0}.brand-sub{letter-spacing:.5px}}
+@media(prefers-reduced-motion:reduce){.brand-half{transition:none}}

@@ -1,0 +1,27 @@
+/* Quiet, static details: paper sleeves, route markers and a small listening deck. */
+.journal-pixel{width:22px;height:22px;flex-shrink:0;image-rendering:pixelated;shape-rendering:crispEdges}
+.trail-chapter{gap:8px}.trail-chapter>.journal-pixel{width:18px;height:18px}.trail-chapter i{color:#7ba49d}
+.journal-divider{display:flex;align-items:center;gap:10px;margin:-5px 0 13px;color:#a96c88;pointer-events:none}
+.journal-divider[hidden]{display:none}.journal-divider>.journal-pixel{width:15px;height:15px}.journal-divider>span{flex:1;height:3px;background:repeating-linear-gradient(90deg,#d4b3ab 0 3px,transparent 3px 8px)}
+.collection:before,.collection:after{display:none}
+.card[data-sleeve]{--sleeve-ink:#b3798e;position:relative;background:#fff0d7;border-bottom:3px solid #c7969e;padding-bottom:12px}
+.card[data-sleeve=folder]{--sleeve-ink:#769f96}.card[data-sleeve=album]{--sleeve-ink:#b68b62}.card[data-sleeve=playlist]{--sleeve-ink:#9280a7}
+.card[data-sleeve]:before{content:'';position:absolute;right:0;bottom:0;width:17px;height:17px;background:linear-gradient(135deg,#fff8e8 0 48%,#d3aaac 49% 53%,#ebccbb 54%);clip-path:polygon(100% 0,100% 100%,0 100%);pointer-events:none}
+.card[data-sleeve]:after{content:attr(data-caption);display:block;color:var(--sleeve-ink);padding-right:14px;letter-spacing:.6px}
+.sleeve-label{display:flex;align-items:center;gap:5px;color:var(--sleeve-ink);font:5px/1.7 var(--pixel);letter-spacing:.4px;margin:-2px 0 9px;text-align:left;min-height:15px}
+.sleeve-label .journal-pixel{width:17px;height:17px}.sleeve-label i{margin-left:auto;font-style:normal;font-size:9px;color:#cda6a6;padding-right:30px}
+.card[data-sleeve]>.cover{outline:1px solid #dfbdb0;outline-offset:3px;border-color:#d3aba4;margin-bottom:16px}
+.card[data-sleeve]>strong{padding-left:2px}.card[data-sleeve]>small{padding-left:2px}
+.playlist-card-wrap .playlist-more{top:6px;right:6px;padding:1px 8px;min-height:26px;font-size:17px}
+.library-destination>span{width:43px;height:43px;display:grid;place-items:center;background:#f1d9bf;border:1px solid #d2a6aa;box-shadow:2px 2px #ddb9ad}
+.library-destination .journal-pixel{width:31px;height:31px}
+.empty-scene{width:180px;position:relative;margin:0 auto 12px;pointer-events:none}.empty-scene>svg{display:block;width:180px;height:82px;image-rendering:pixelated;shape-rendering:crispEdges}
+.empty-scene>span{position:absolute;left:55px;bottom:10px;width:32px;height:32px;background:#f8e6c8;border:1px solid #cda6a5;display:grid;place-items:center}
+.now-caption{display:block;color:#cda2b4;font:5px/1.7 var(--pixel);letter-spacing:.8px;margin:0 0 5px}
+.player{box-shadow:0 -3px #211c2f,0 -6px #d7a4ad33}
+.player:after{content:'';position:absolute;left:8px;top:12px;width:3px;height:3px;background:#b58a9d;box-shadow:0 3px #281d31;pointer-events:none}
+.transport{position:relative}.transport:before{content:var(--app-display-name,'Tembrival') ' · ПРИВАЛ У ВЕРШИНЫ';position:absolute;top:-10px;left:0;right:0;text-align:center;font:5px/1.6 var(--pixel);letter-spacing:1px;color:#bc92a8;pointer-events:none}
+.timeline{padding-top:5px;background:repeating-linear-gradient(90deg,#bb8ba333 0 1px,transparent 1px 12px) center top/calc(100% - 80px) 3px no-repeat}
+.footer-right:before{content:'✦';color:#a7c9b8;margin-right:9px}
+@media(max-width:650px){.player .transport{position:static}.journal-divider{margin:-4px 0 10px;gap:7px}.journal-divider>.journal-pixel{width:12px;height:12px}.sleeve-label{font-size:4px;gap:3px;letter-spacing:0;margin-bottom:8px}.sleeve-label .journal-pixel{width:15px;height:15px}.sleeve-label i{padding-right:23px}.card[data-sleeve]{padding-bottom:9px}.card[data-sleeve]:after{font-size:4px;line-height:1.8;letter-spacing:0}.card[data-sleeve]>.cover{outline-offset:2px;margin-bottom:13px}.playlist-card-wrap .playlist-more{top:4px;right:4px;padding:1px 7px}.now-caption,.transport:before{display:none}.timeline{padding-top:3px;background-size:calc(100% - 65px) 2px}.player:after{display:none}.empty-scene{transform:scale(.9);margin-bottom:4px}}
+@media(max-width:360px){.sleeve-label>i{display:none}.sleeve-label{padding-right:20px;font-size:3.5px}}

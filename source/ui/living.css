@@ -1,0 +1,47 @@
+/* A few living details, in the same paper / raspberry palette. */
+:root{--record-accent:rgb(173,109,140);--record-light:rgb(234,190,183)}
+*{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #af557d;outline-offset:3px}
+button:active:not(:disabled){background-color:#edc0ae;box-shadow:1px 1px #a77384;transform:translateY(1px)}
+.playlist-card-wrap{transform:rotate(-.6deg);transition:transform .18s ease;isolation:isolate}
+.playlist-card-wrap:nth-child(even){transform:rotate(.6deg)}
+.playlist-card-wrap>.card,.playlist-card-wrap>.card:nth-child(even),.playlist-card-wrap>.card:hover,.playlist-card-wrap>.card:focus-visible,.playlist-card-wrap>.card:active{transform:none}
+.playlist-card-wrap:hover,.playlist-card-wrap:focus-within{transform:translateY(-3px) rotate(-1deg)}
+.playlist-card-wrap:has(>.card:active){transform:translateY(1px) rotate(-.6deg)}
+.playlist-card-wrap .playlist-more{z-index:1}
+.now #now-cover.vinyl,.track-info>.track-record,.cassette.mini-record{background:repeating-radial-gradient(circle at center,#312437 0 2px,#50394c 3px,#211b2d 4px);border:2px solid var(--record-accent);box-shadow:0 0 0 1px #302235,2px 3px #251b31;position:relative;border-radius:50%;overflow:hidden;display:grid;place-items:center;animation:living-record 16s linear infinite paused;will-change:transform}
+body.is-playing .now #now-cover.vinyl,body.is-playing tr.playing .track-info>.track-record{animation-play-state:running}
+.vinyl-label,.record-label{border:1px solid var(--record-light);background:var(--record-accent);width:59%;height:59%;border-radius:50%;overflow:hidden;display:grid;place-items:center}
+.record-label>.cover{width:100%!important;height:100%!important;margin:0;border:0;box-shadow:none;animation:none!important;border-radius:50%;object-fit:cover}
+.track-record>i{position:absolute;left:calc(50% - 2px);top:calc(50% - 2px);width:4px;height:4px;background:#ffedcd;border:1px solid #563e54;border-radius:50%}
+.now #now-cover.vinyl:after,.track-record:after{content:'';position:absolute;inset:2px;border-radius:50%;pointer-events:none;background:conic-gradient(from 30deg,transparent 0 20%,color-mix(in srgb,var(--record-light) 22%,transparent) 25%,transparent 34% 70%,color-mix(in srgb,var(--record-accent) 20%,transparent) 76%,transparent 84%)}
+.player{background-color:#39273f;background-image:linear-gradient(100deg,color-mix(in srgb,var(--record-accent) 12%,transparent),transparent 65%),linear-gradient(0deg,#342239,#55334b);border-top-color:color-mix(in srgb,var(--record-accent) 55%,#c79791)}
+/* Keep scrolling independent of the header blur and off-screen cover painting. */
+header{background:linear-gradient(#39273f,#3d2a42);backdrop-filter:none}
+body{background-image:none;isolation:isolate}
+body:before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(#3a2544dd,#37233ff2),url('assets/alpine-radio.png') center/cover;transform:translateZ(0)}
+.track-info{content-visibility:auto;contain-intrinsic-size:auto 33px}
+.track-info .cassette-art{filter:none}
+tr.playing td:first-child{box-shadow:inset 3px 0 #c45580;color:#ad4b76}
+.pixel-meter{display:inline-flex;align-items:center;gap:2px;height:16px;width:16px;vertical-align:middle}
+.pixel-meter i{width:3px;height:13px;background:#b65b7e;transform-origin:bottom;animation:living-meter .9s steps(3,end) infinite paused}
+.pixel-meter i:nth-child(2){height:9px;animation-delay:-.3s}.pixel-meter i:nth-child(3){height:15px;animation-delay:-.6s}
+.is-playing .pixel-meter i{animation-play-state:running}
+
+@keyframes living-record{to{transform:rotate(360deg)}}
+@keyframes living-meter{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+
+.still-camp .playlist-card-wrap,.still-camp .playlist-card-wrap:hover,.still-camp .playlist-card-wrap:focus-within{transform:none}
+@media(prefers-reduced-motion:reduce){.playlist-card-wrap,.playlist-card-wrap:nth-child(even),.playlist-card-wrap:hover,.playlist-card-wrap:focus-within{transform:none}}
+
+/* The repeating paper lines over a tall library were measurably slower to paint. */
+.collection{background-image:none}
+
+/* Brief local feedback; no timer or animation remains after the click. */
+.favorite-sparks{position:fixed;width:32px;height:32px;z-index:50;pointer-events:none;color:#c34e79}
+.favorite-sparks i{position:absolute;left:14px;top:14px;width:4px;height:4px;background:currentColor;transform:translate(var(--sx),var(--sy));animation:favorite-spark .6s steps(6,end) both}
+.favorite-sparks i:nth-child(1){--sx:-13px;--sy:-9px}.favorite-sparks i:nth-child(2){--sx:0px;--sy:-16px}.favorite-sparks i:nth-child(3){--sx:13px;--sy:-8px}.favorite-sparks i:nth-child(4){--sx:14px;--sy:8px}.favorite-sparks i:nth-child(5){--sx:0px;--sy:15px}.favorite-sparks i:nth-child(6){--sx:-14px;--sy:8px}
+@keyframes favorite-spark{0%{opacity:1;transform:translate(0,0) scale(.5)}45%{opacity:1}100%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(.75)}}
+:root[data-theme=night] .favorite-sparks{color:#ef9cb1}
+.still-camp .favorite-sparks i{animation:none;opacity:1}
+@media(prefers-reduced-motion:reduce){.favorite-sparks i{animation:none;opacity:1}}

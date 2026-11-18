@@ -1,0 +1,35 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs/promises';import os from 'node:os';import path from 'node:path';
+import { Library,sha256 } from '../desktop/library.mjs';import {startSync} from '../desktop/sync.mjs';import {fixture,wav} from './fixtures.mjs';
+test('Folder import, persistent deduplication, pairing, resumed transfer, hash verification and revoke',async t=>{
+  const root=await fs.mkdtemp(path.join(os.tmpdir(),'luma-test-'));t.after(()=>fs.rm(root,{recursive:true,force:true}));
+  const source=await fixture(path.join(root,'source'));const lib=await new Library(path.join(root,'pc')).init();const report=await lib.importFolders([source]);
+  assert.equal(report.added,2);assert.equal(report.duplicates,1);assert.deepEqual(report.errors,[]);assert.equal(lib.data.tracks.find(t=>t.title==='Song').artist,'Artist');assert.ok(lib.data.tracks[0].duration>.9);
+  assert.equal((await lib.importFolders([source])).added,0);assert.equal((await new Library(path.join(root,'pc')).init()).data.tracks.length,2);
+  const apk=path.join(root,'test.apk');await fs.writeFile(apk,'test installer bytes');
+  const sync=await startSync(lib,{port:0,apkPath:apk});t.after(()=>new Promise(r=>sync.server.close(r)));const base=`http://127.0.0.1:${sync.port}`;
+  assert.match(await(await fetch(base+'/install')).text(),/Tembrival/);assert.equal(await(await fetch(base+'/Luma-Music-Android.apk')).text(),'test installer bytes');
+  assert.equal((await fetch(base+'/v1/manifest')).status,401);
+  const pin=sync.pairInfo().pin;
+  const pair=async code=>fetch(base+'/v1/pair',{method:'POST',body:JSON.stringify({pin:code,name:'Test Android'})});
+  assert.equal((await pair('000000')).status,401);const paired=await pair(pin);assert.equal(paired.status,200);const {token}=await paired.json();assert.equal((await pair(pin)).status,401);
+  const headers={Authorization:`Bearer ${token}`};const manifest=await(await fetch(base+'/v1/manifest',{headers})).json();assert.equal(manifest.tracks.length,2);
+  const track=manifest.tracks[0],url=base+'/v1/audio/'+track.id;
+  const start=await fetch(url,{headers:{...headers,Range:'bytes=0-1000'}});assert.equal(start.status,206);assert.equal(start.headers.get('content-range'),`bytes 0-1000/${track.size}`);
+  const first=Buffer.from(await start.arrayBuffer()),rest=await fetch(url,{headers:{...headers,Range:'bytes=1001-'}});assert.equal(rest.status,206);
+  const phone=path.join(root,'phone.wav');await fs.writeFile(phone,Buffer.concat([first,Buffer.from(await rest.arrayBuffer())]));assert.equal(await sha256(phone),track.id);
+  assert.equal((await fetch(url,{headers:{...headers,Range:`bytes=${track.size}-`}})).status,416);
+  assert.equal((await fetch(url,{headers:{...headers,Range:'bytes=-20'}})).headers.get('content-length'),'20');
+  assert.equal((await fetch(base+'/v1/manifest',{headers:{...headers,Origin:'https://untrusted.test'}})).status,403);
+  lib.data.devices=[];await lib.save();assert.equal((await fetch(url,{headers})).status,401);
+  await fs.rm(source,{recursive:true});assert.equal((await fs.stat(lib.file(track))).size,track.size);
+});
+test('Embedded metadata and adjacent cover are read while original audio is preserved',async t=>{
+  const root=await fs.mkdtemp(path.join(os.tmpdir(),'luma-tags-'));t.after(()=>fs.rm(root,{recursive:true,force:true}));
+  const source=path.join(root,'source');await fs.mkdir(source);
+  const chunk=(id,text)=>{const data=Buffer.from(text+'\0'),out=Buffer.alloc(8+data.length+(data.length%2));out.write(id);out.writeUInt32LE(data.length,4);data.copy(out,8);return out;};
+  const info=Buffer.concat([Buffer.from('INFO'),chunk('INAM','Tagged title'),chunk('IART','Tagged artist'),chunk('IPRD','Tagged album')]);const list=Buffer.alloc(8);list.write('LIST');list.writeUInt32LE(info.length,4);
+  const bytes=Buffer.concat([wav(),list,info]);bytes.writeUInt32LE(bytes.length-8,4);const file=path.join(source,'wrong-name.wav');await fs.writeFile(file,bytes);
+  const cover=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aN1cAAAAASUVORK5CYII=','base64');await fs.writeFile(path.join(source,'cover.png'),cover);
+  const lib=await new Library(path.join(root,'library')).init();const report=await lib.importFolders([source]);assert.equal(report.added,1);const track=lib.data.tracks[0];
+  assert.equal(track.title,'Tagged title');assert.equal(track.artist,'Tagged artist');assert.equal(track.album,'Tagged album');assert.equal(track.cover,true);assert.equal(track.coverType,'image/png');assert.deepEqual(await fs.readFile(path.join(lib.root,'art',track.id)),cover);assert.deepEqual(await fs.readFile(file),bytes);
+});

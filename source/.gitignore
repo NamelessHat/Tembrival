@@ -1,0 +1,14 @@
+node_modules/
+release/
+android/build/
+*.jks
+*.keystore
+*.pfx
+*.p12
+*.clixml
+*.pem
+.env*
+*.log
+site/downloads/
+signing.local.*
+library/
