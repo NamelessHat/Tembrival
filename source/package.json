@@ -1,6 +1,6 @@
 {
   "name": "luma-music",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "private": true,
   "type": "module",
   "main": "desktop/main.cjs",
@@ -43,7 +43,7 @@
   },
   "description": "Local music library with offline Android Wi-Fi sync",
   "author": "NamelessHat",
-  "androidVersionCode": 31,
+  "androidVersionCode": 32,
   "releaseChannel": "public",
   "license": "SEE LICENSE IN LICENSE.md"
 }
